@@ -66,7 +66,7 @@
       console.log("Username:", username);
       console.log("Password:", password);
 
-      document.getElementById("message").textContent = "Login failed: suspicious activity detected.";
+      window.location.href = "quiz.html"; // Redirect to quiz page after fake login
       document.getElementById("message").style.color = "#f87171";
     });
   </script>
