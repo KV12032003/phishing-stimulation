@@ -69,7 +69,26 @@
       window.location.href = "quiz.html"; // Redirect to quiz page after fake login
       document.getElementById("message").style.color = "#f87171";
     });
-  </script>
+  <script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent actual form submission
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // ✅ Only allow specific credentials
+    if (username === "KV" && password === "1234") {
+      console.log("🚨 [Phishing Simulation] Captured Credentials:");
+      console.log("Username:", username);
+      console.log("Password:", password);
+
+      window.location.href = "quiz.html"; // Redirect to quiz
+    } else {
+      document.getElementById("message").style.color = "#f87171";
+      document.getElementById("message").textContent = "❌ Wrong credentials. Try again.";
+    }
+  });
+</script>
 </body>
 </html>
 
