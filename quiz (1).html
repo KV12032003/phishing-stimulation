@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phishing Awareness Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      padding: 20px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #3b82f6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Phishing Awareness Quiz</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. What is phishing?</p>
+      <label><input type="radio" name="q1" value="a"> A type of malware</label><br>
+      <label><input type="radio" name="q1" value="b"> A hacking method using physical devices</label><br>
+      <label><input type="radio" name="q1" value="c"> A trick to steal personal data through fake emails</label>
+    </div>
+    <div class="question">
+      <p>2. Which of these is a sign of a phishing email?</p>
+      <label><input type="radio" name="q2" value="a"> Professional grammar</label><br>
+      <label><input type="radio" name="q2" value="b"> Urgent language asking to click a suspicious link</label><br>
+      <label><input type="radio" name="q2" value="c"> Email from your manager</label>
+    </div>
+    <div class="question">
+      <p>3. How can you protect yourself from phishing?</p>
+      <label><input type="radio" name="q3" value="a"> Never update your browser</label><br>
+      <label><input type="radio" name="q3" value="b"> Always click links in unknown emails</label><br>
+      <label><input type="radio" name="q3" value="c"> Be cautious of unexpected messages & verify URLs</label>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const answers = { q1: "c", q2: "b", q3: "c" };
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+      document.getElementById("result").innerText = `You scored ${score} out of 3`;
+    });
+  </script>
+</body>
+</html>
